@@ -1,413 +1,1245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects — Abir Majdi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
-    #cursor { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
-    #cursor svg { display: block; transition: transform .15s ease; }
-    body:has(a:hover) #cursor svg { transform: scale(1.4); }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      cursor: none !important;
+    }
+
+    #cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+    }
+
+    #cursor svg {
+      display: block;
+      transition: transform .15s ease;
+    }
+
+    body:has(a:hover) #cursor svg,
+    body:has(button:hover) #cursor svg {
+      transform: scale(1.4);
+    }
+
     #cursor-trail {
-      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99998;
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #ff85a1; opacity: .5; transform: translate(-50%,-50%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99998;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff85a1;
+      opacity: .5;
+      transform: translate(-50%, -50%);
       transition: left .12s ease, top .12s ease;
     }
+
     :root {
-      --bg:#0b0b12; --bg2:#100f1a; --card:#13111e; --border:rgba(255,182,193,.13);
-      --pink:#ffb6c1; --pink-light:#ffd6e0; --pink-glow:#ff85a1;
-      --mint:#b8f0e0; --lavender:#d4b8f0; --cyan:#7ee8fa;
-      --text:#f0eaf4; --muted:#9988aa;
-      --font-mono:'Space Mono',monospace; --font-body:'DM Sans',sans-serif; --font-head:'Syne',sans-serif;
+      --bg: #0b0b12;
+      --bg2: #100f1a;
+      --card: #13111e;
+      --border: rgba(255, 182, 193, .13);
+      --pink: #ffb6c1;
+      --pink-light: #ffd6e0;
+      --pink-glow: #ff85a1;
+      --mint: #b8f0e0;
+      --lavender: #d4b8f0;
+      --cyan: #7ee8fa;
+      --text: #f0eaf4;
+      --muted: #9988aa;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+      --font-head: 'Syne', sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
     body::before {
-      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-      background-size:200px 200px; opacity:.35;
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: .35;
     }
+
     body::after {
-      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-      background-image:linear-gradient(rgba(255,182,193,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,182,193,.04) 1px,transparent 1px);
-      background-size:40px 40px;
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255, 182, 193, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 182, 193, .04) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
+
     nav {
-      position:fixed; top:0; left:0; right:0; z-index:1000;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:1.2rem 4rem; background:rgba(11,11,18,.85);
-      backdrop-filter:blur(20px); border-bottom:1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(11, 11, 18, .85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-logo { display:flex; align-items:center; gap:.7rem; font-family:var(--font-mono); font-size:.85rem; color:var(--pink); text-decoration:none; }
-    .nav-logo-icon { width:32px; height:32px; border:1.5px solid var(--pink); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--pink); }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { font-family:var(--font-mono); font-size:.78rem; color:var(--muted); text-decoration:none; letter-spacing:.08em; text-transform:uppercase; transition:color .2s; }
-    .nav-links a:hover, .nav-links a.active { color:var(--pink-light); }
-    .nav-cv { font-family:var(--font-mono); font-size:.78rem; color:var(--bg); background:var(--pink); padding:.45rem 1.2rem; border-radius:4px; text-decoration:none; letter-spacing:.06em; transition:background .2s; }
-    .nav-cv:hover { background:var(--pink-light); }
 
-    /* HERO HEADER */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-family: var(--font-mono);
+      font-size: .85rem;
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--pink);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      color: var(--pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--pink-light);
+    }
+
+    .nav-cv {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--bg);
+      background: var(--pink);
+      padding: .45rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: .06em;
+      transition: background .2s;
+    }
+
+    .nav-cv:hover {
+      background: var(--pink-light);
+    }
+
     .page-header {
-      position:relative; z-index:1;
+      position: relative;
+      z-index: 1;
       padding: 9rem 6rem 5rem;
-      border-bottom:1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .page-label { font-family:var(--font-mono); font-size:.72rem; color:var(--pink-glow); letter-spacing:.18em; text-transform:uppercase; margin-bottom:.8rem; }
-    .page-title { font-family:var(--font-head); font-size:clamp(3rem,6vw,5rem); line-height:.95; letter-spacing:-.02em; margin-bottom:1.2rem; }
-    .page-title em { font-style:normal; background:linear-gradient(135deg,var(--pink-light),var(--lavender),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .page-desc { font-size:1rem; color:var(--muted); max-width:600px; line-height:1.8; }
 
-    /* FILTER TABS */
+    .page-label {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--pink-glow);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+
+    .page-title {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.02em;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--pink-light), var(--lavender), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
     .filter-bar {
-      position:relative; z-index:1;
-      padding:2.5rem 6rem;
-      display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
-      border-bottom:1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      padding: 2.5rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
     }
+
     .filter-btn {
-      font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em;
-      padding:.45rem 1.1rem; border-radius:20px; border:1px solid var(--border);
-      background:transparent; color:var(--muted); transition:all .2s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      border-color:var(--pink); color:var(--pink-light);
-      background:rgba(255,133,161,.08);
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .08em;
+      padding: .45rem 1.1rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      transition: all .2s;
+      cursor: pointer;
     }
 
-    /* PROJECTS GRID */
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--pink);
+      color: var(--pink-light);
+      background: rgba(255, 133, 161, .08);
+    }
+
     .projects-section {
-      position:relative; z-index:1;
-      padding:4rem 6rem 6rem;
+      position: relative;
+      z-index: 1;
+      padding: 4rem 6rem 6rem;
     }
+
     .projects-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-      gap:1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
     }
+
     .proj-card {
-      background:var(--card); border:1px solid var(--border); border-radius:12px;
-      padding:2rem; position:relative; overflow:hidden;
-      transition:border-color .2s, transform .2s, box-shadow .2s;
-      display:flex; flex-direction:column; gap:.8rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
     }
+
     .proj-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background:linear-gradient(90deg,var(--pink-glow),var(--lavender));
-      opacity:0; transition:opacity .2s;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink-glow), var(--lavender));
+      opacity: 0;
+      transition: opacity .2s;
     }
-    .proj-card:hover { border-color:rgba(255,182,193,.25); transform:translateY(-4px); box-shadow:0 20px 50px rgba(0,0,0,.4); }
-    .proj-card:hover::before { opacity:1; }
 
-    .proj-header { display:flex; justify-content:space-between; align-items:flex-start; }
-    .proj-num { font-family:var(--font-mono); font-size:.68rem; color:rgba(255,133,161,.4); }
-    .proj-type { font-family:var(--font-mono); font-size:.62rem; padding:.2rem .6rem; border-radius:3px; }
-    .type-security { background:rgba(255,133,161,.1); color:var(--pink-glow); border:1px solid rgba(255,133,161,.2); }
-    .type-dev { background:rgba(126,232,250,.1); color:var(--cyan); border:1px solid rgba(126,232,250,.2); }
-    .type-ml { background:rgba(184,240,224,.1); color:var(--mint); border:1px solid rgba(184,240,224,.2); }
-    .type-game { background:rgba(212,184,240,.1); color:var(--lavender); border:1px solid rgba(212,184,240,.2); }
-    .type-cloud { background:rgba(255,214,224,.1); color:var(--pink-light); border:1px solid rgba(255,214,224,.2); }
+    .proj-card:hover {
+      border-color: rgba(255, 182, 193, .25);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
+    }
 
-    .proj-title { font-family:var(--font-head); font-size:1.05rem; color:var(--text); line-height:1.3; }
-    .proj-desc { font-size:.83rem; color:var(--muted); line-height:1.7; flex:1; }
-    .proj-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .tag { font-family:var(--font-mono); font-size:.6rem; padding:.25rem .6rem; border-radius:3px; background:rgba(255,182,193,.06); color:var(--pink-light); border:1px solid rgba(255,182,193,.12); }
-    .tag.b { background:rgba(126,232,250,.06); color:var(--cyan); border-color:rgba(126,232,250,.12); }
-    .tag.p { background:rgba(212,184,240,.06); color:var(--lavender); border-color:rgba(212,184,240,.12); }
-    .tag.g { background:rgba(184,240,224,.06); color:var(--mint); border-color:rgba(184,240,224,.12); }
-    .proj-link { font-family:var(--font-mono); font-size:.72rem; color:var(--pink-glow); text-decoration:none; display:inline-flex; align-items:center; gap:.4rem; transition:gap .2s; margin-top:.3rem; }
-    .proj-link:hover { gap:.7rem; }
+    .proj-card:hover::before {
+      opacity: 1;
+    }
 
-    /* FEATURED */
     .proj-card.featured {
       grid-column: span 2;
-      border-color:rgba(255,182,193,.18);
+      border-color: rgba(255, 182, 193, .18);
     }
-    .proj-card.featured .proj-title { font-size:1.25rem; }
 
-    /* REVEAL */
-    .reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
-    .reveal.visible { opacity:1; transform:none; }
+    .proj-card.featured .proj-title {
+      font-size: 1.25rem;
+    }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .proj-num {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: rgba(255, 133, 161, .4);
+    }
+
+    .proj-type {
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      padding: .2rem .6rem;
+      border-radius: 3px;
+    }
+
+    .type-security {
+      background: rgba(255, 133, 161, .1);
+      color: var(--pink-glow);
+      border: 1px solid rgba(255, 133, 161, .2);
+    }
+
+    .type-dev {
+      background: rgba(126, 232, 250, .1);
+      color: var(--cyan);
+      border: 1px solid rgba(126, 232, 250, .2);
+    }
+
+    .type-ml {
+      background: rgba(184, 240, 224, .1);
+      color: var(--mint);
+      border: 1px solid rgba(184, 240, 224, .2);
+    }
+
+    .type-game {
+      background: rgba(212, 184, 240, .1);
+      color: var(--lavender);
+      border: 1px solid rgba(212, 184, 240, .2);
+    }
+
+    .type-cloud {
+      background: rgba(255, 214, 224, .1);
+      color: var(--pink-light);
+      border: 1px solid rgba(255, 214, 224, .2);
+    }
+
+    .proj-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .proj-desc {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      padding: .25rem .6rem;
+      border-radius: 3px;
+      background: rgba(255, 182, 193, .06);
+      color: var(--pink-light);
+      border: 1px solid rgba(255, 182, 193, .12);
+    }
+
+    .tag.b {
+      background: rgba(126, 232, 250, .06);
+      color: var(--cyan);
+      border-color: rgba(126, 232, 250, .12);
+    }
+
+    .tag.p {
+      background: rgba(212, 184, 240, .06);
+      color: var(--lavender);
+      border-color: rgba(212, 184, 240, .12);
+    }
+
+    .tag.g {
+      background: rgba(184, 240, 224, .06);
+      color: var(--mint);
+      border-color: rgba(184, 240, 224, .12);
+    }
+
+    .proj-actions {
+      display: flex;
+      gap: .8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: .3rem;
+    }
+
+    .proj-link {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--pink-glow);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: gap .2s;
+    }
+
+    .proj-link:hover {
+      gap: .7rem;
+    }
+
+    .demo-btn {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--mint);
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: gap .2s, background .2s;
+      background: rgba(184, 240, 224, .08);
+      border: 1px solid rgba(184, 240, 224, .2);
+      border-radius: 4px;
+      padding: .3rem .8rem;
+      cursor: pointer;
+    }
+
+    .demo-btn:hover {
+      gap: .7rem;
+      background: rgba(184, 240, 224, .15);
+      border-color: var(--mint);
+    }
+
+    .demo-btn.soon {
+      opacity: .4;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    /* VIDEO MODAL */
+    #video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(11, 11, 18, .95);
+      backdrop-filter: blur(16px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #video-modal.open {
+      display: flex;
+    }
+
+    .video-modal-inner {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .7);
+    }
+
+    .video-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-modal-title {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--pink-light);
+      letter-spacing: .08em;
+    }
+
+    .video-modal-close {
+      font-family: var(--font-mono);
+      font-size: .9rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      padding: .2rem .5rem;
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .video-modal-close:hover {
+      color: var(--pink-light);
+    }
+
+    .video-ratio {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .video-ratio iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #000;
+    }
+
+    /* VIDEO TABS (multi-vidéo) */
+    .video-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding: .9rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 182, 193, .03);
+    }
+
+    .video-tab {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .06em;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .video-tab:hover {
+      border-color: var(--pink);
+      color: var(--pink-light);
+    }
+
+    .video-tab.active {
+      border-color: var(--pink-glow);
+      color: var(--pink-light);
+      background: rgba(255, 133, 161, .1);
+    }
+
+    /* VIDEO NAV (prev/next) */
+    .video-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: .8rem 1.4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .video-nav-btn {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--pink-glow);
+      background: rgba(255, 133, 161, .07);
+      border: 1px solid rgba(255, 133, 161, .25);
+      border-radius: 4px;
+      padding: .3rem .9rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .video-nav-btn:hover {
+      background: rgba(255, 133, 161, .15);
+    }
+
+    .video-nav-btn:disabled {
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    .video-nav-count {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--muted);
+    }
+
+    /* PLACEHOLDER when no video yet */
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      gap: 1rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: .8rem;
+    }
+
+    .video-placeholder .placeholder-icon {
+      font-size: 3rem;
+      opacity: .3;
+    }
+
+    .video-placeholder p {
+      text-align: center;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .video-placeholder a {
+      color: var(--pink-glow);
+      text-decoration: none;
+    }
+
+    .video-placeholder a:hover {
+      text-decoration: underline;
+    }
+
+    /* DRIVE LINK CARD — shown instead of blocked iframe */
+    .drive-link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      gap: 1.4rem;
+      padding: 2.5rem;
+    }
+
+    .drive-link-label {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .drive-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      letter-spacing: .06em;
+      color: var(--bg);
+      background: var(--pink-glow);
+      padding: .65rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+
+    .drive-open-btn:hover {
+      background: var(--pink-light);
+      transform: translateY(-2px);
+    }
+
+    .drive-icon {
+      width: 48px;
+      height: 48px;
+      opacity: .5;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
     footer {
-      position:relative; z-index:1;
-      border-top:1px solid var(--border); padding:2rem 6rem;
-      display:flex; align-items:center; justify-content:space-between;
-      font-family:var(--font-mono); font-size:.72rem; color:var(--muted);
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--muted);
     }
-    footer a { color:var(--pink-glow); text-decoration:none; }
+
+    footer a {
+      color: var(--pink-glow);
+      text-decoration: none;
+    }
 
     @media(max-width:900px) {
-      nav { padding:1rem 1.5rem; }
-      .page-header, .filter-bar, .projects-section { padding-left:1.5rem; padding-right:1.5rem; }
-      .page-header { padding-top:6rem; }
-      .projects-grid { grid-template-columns:1fr; }
-      .proj-card.featured { grid-column:span 1; }
-      footer { padding:1.5rem; flex-direction:column; gap:.5rem; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .page-header,
+      .filter-bar,
+      .projects-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .page-header {
+        padding-top: 6rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proj-card.featured {
+        grid-column: span 1;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: .5rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div id="cursor">
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-    <path d="M14 2 L24 6 L24 14 C24 19.5 19.5 24.5 14 26 C8.5 24.5 4 19.5 4 14 L4 6 Z" fill="rgba(255,133,161,0.15)" stroke="#ff85a1" stroke-width="1.5"/>
-    <rect x="10" y="13" width="8" height="6" rx="1" fill="none" stroke="#ffb6c1" stroke-width="1.2"/>
-    <path d="M11 13 L11 11 C11 9.3 12.3 8 14 8 C15.7 8 17 9.3 17 11 L17 13" stroke="#ffb6c1" stroke-width="1.2" fill="none"/>
-    <circle cx="14" cy="16" r="1" fill="#ffb6c1"/>
-  </svg>
-</div>
-<div id="cursor-trail"></div>
-
-<nav>
-  <a href="index.htm" class="nav-logo">
-    <div class="nav-logo-icon">AM</div>
-    <span>Abir Majdi</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.htm#about">About</a></li>
-    <li><a href="index.htm#skills">Skills</a></li>
-    <li><a href="index.htm#certifications">Certs</a></li>
-    <li><a href="projets.htm" class="active">Projects</a></li>
-    <li><a href="tp.htm">Lab Work</a></li>
-    <li><a href="index.htm#contact">Contact</a></li>
-  </ul>
-  <a href="CV stage d'application.pdf" class="nav-cv" target="_blank">Download CV</a>
-</nav>
-
-<div class="page-header">
-  <div class="reveal">
-    <p class="page-label">// Portfolio — Projects</p>
-    <h1 class="page-title">All <em>Projects</em></h1>
-    <p class="page-desc">A collection of academic, personal, and cybersecurity-focused projects built throughout my engineering studies (2024–2026).</p>
+  <div id="cursor">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <path d="M14 2 L24 6 L24 14 C24 19.5 19.5 24.5 14 26 C8.5 24.5 4 19.5 4 14 L4 6 Z" fill="rgba(255,133,161,0.15)"
+        stroke="#ff85a1" stroke-width="1.5" />
+      <rect x="10" y="13" width="8" height="6" rx="1" fill="none" stroke="#ffb6c1" stroke-width="1.2" />
+      <path d="M11 13 L11 11 C11 9.3 12.3 8 14 8 C15.7 8 17 9.3 17 11 L17 13" stroke="#ffb6c1" stroke-width="1.2"
+        fill="none" />
+      <circle cx="14" cy="16" r="1" fill="#ffb6c1" />
+    </svg>
   </div>
-</div>
+  <div id="cursor-trail"></div>
 
-<div class="filter-bar">
-  <button class="filter-btn active" onclick="filterProjects('all', this)">All (12)</button>
-  <button class="filter-btn" onclick="filterProjects('security', this)">🔐 Cybersecurity</button>
-  <button class="filter-btn" onclick="filterProjects('dev', this)">💻 Development</button>
-  <button class="filter-btn" onclick="filterProjects('cloud', this)">☁️ Cloud & Infra</button>
-  <button class="filter-btn" onclick="filterProjects('ml', this)">🤖 AI / ML</button>
-  <button class="filter-btn" onclick="filterProjects('game', this)">🎮 Game Dev</button>
-</div>
+  <nav>
+    <a href="index.htm" class="nav-logo">
+      <div class="nav-logo-icon">AM</div>
+      <span>Abir Majdi</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.htm#about">About</a></li>
+      <li><a href="index.htm#skills">Skills</a></li>
+      <li><a href="index.htm#certifications">Certs</a></li>
+      <li><a href="projets.htm" class="active">Projects</a></li>
+      <li><a href="index.htm#contact">Contact</a></li>
+    </ul>
+    <a href="CV stage d'application.pdf" class="nav-cv" target="_blank">Download CV</a>
+  </nav>
 
-<div class="projects-section">
-  <div class="projects-grid">
-
-    <div class="proj-card featured reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">01</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">MITRE ATT&amp;CK Simulation Platform</div>
-      <div class="proj-desc">Virtualized Active Directory lab (5 VMs) with simulation of 21 MITRE ATT&amp;CK techniques across 7 tactics via Atomic Red Team. Centralized detection with Sysmon + Splunk. Detection coverage: 85.7% — 3 custom Sigma rules created for blind spots.</div>
-      <div class="proj-tags">
-        <span class="tag">Cybersecurity</span>
-        <span class="tag p">Blue Team</span>
-        <span class="tag p">Red Team</span>
-        <span class="tag b">Splunk / SIEM</span>
-        <span class="tag g">Active Directory</span>
-        <span class="tag">MITRE ATT&amp;CK</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/mitre-attack-detection-lab" target="_blank" class="proj-link">View on GitHub →</a>
+  <div class="page-header">
+    <div class="reveal">
+      <p class="page-label">// Portfolio — Projects</p>
+      <h1 class="page-title">All <em>Projects</em></h1>
+      <p class="page-desc">A collection of academic, personal, and cybersecurity-focused projects built throughout my
+        engineering studies (2024–2026).</p>
     </div>
-
-    <div class="proj-card reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">02</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">Anomalous Access Detection — Medical DB</div>
-      <div class="proj-desc">Analysis and journaling of suspicious activities in a MySQL medical database. Flask-based detection engine with automated alerting and log centralization.</div>
-      <div class="proj-tags">
-        <span class="tag">Backend</span>
-        <span class="tag">Cybersecurity</span>
-        <span class="tag b">Flask</span>
-        <span class="tag g">MySQL</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-flask-detection" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">03</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">SSH Honeypot + Centralized Log Pipeline</div>
-      <div class="proj-desc">Deployed a Cowrie SSH honeypot with full log centralization, real-time attack analysis, and behavioral fingerprinting of threat actors. Hardened with AppArmor and Docker isolation.</div>
-      <div class="proj-tags">
-        <span class="tag">Honeypot</span>
-        <span class="tag p">SOC / Blue Team</span>
-        <span class="tag b">Docker</span>
-        <span class="tag">AppArmor</span>
-        <span class="tag g">Log Analysis</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-honeypot-ssh" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">04</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">Custom TLS-like Secure Protocol</div>
-      <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
-      <div class="proj-tags">
-        <span class="tag">Cryptography</span>
-        <span class="tag p">Network Security</span>
-        <span class="tag b">Python</span>
-        <span class="tag">TLS/PKI</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">05</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">Web App Hardening (OWASP A02)</div>
-      <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
-      <div class="proj-tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag p">Blue Team</span>
-        <span class="tag p">Red Team</span>
-        <span class="tag b">Docker</span>
-        <span class="tag">Nmap</span>
-        <span class="tag g">OWASP</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="security">
-      <div class="proj-header">
-        <span class="proj-num">06</span>
-        <span class="proj-type type-security">Cybersecurity</span>
-      </div>
-      <div class="proj-title">Network Traffic Analysis (Wireshark)</div>
-      <div class="proj-desc">Monitoring and anomaly detection in local network traffic. Built custom detection filters and documented attack patterns from captured PCAP files.</div>
-      <div class="proj-tags">
-        <span class="tag">Wireshark</span>
-        <span class="tag b">Network</span>
-        <span class="tag g">PCAP Analysis</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-wireshark" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card featured reveal" data-cat="cloud">
-      <div class="proj-header">
-        <span class="proj-num">07</span>
-        <span class="proj-type type-cloud">Cloud / Infra</span>
-      </div>
-      <div class="proj-title">Private Cloud Platform — Proxmox + Auto-Scaling</div>
-      <div class="proj-desc">Full private cloud infrastructure with HAProxy load balancing (Round Robin &amp; Least Connections), Prometheus/Alertmanager monitoring, and automatic Flask server deployment triggered when CPU &gt; 80% — zero human intervention required.</div>
-      <div class="proj-tags">
-        <span class="tag">Proxmox</span>
-        <span class="tag b">HAProxy</span>
-        <span class="tag g">Prometheus</span>
-        <span class="tag">Flask</span>
-        <span class="tag p">Autoscaling</span>
-        <span class="tag b">VMware</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/private-cloud-autoscaling-platform" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="dev">
-      <div class="proj-header">
-        <span class="proj-num">09</span>
-        <span class="proj-type type-dev">Development</span>
-      </div>
-      <div class="proj-title">Automation &amp; Cybersecurity Scripts</div>
-      <div class="proj-desc">IP geolocation script via REST API and a cryptographically secure password generator with custom entropy rules and clipboard integration.</div>
-      <div class="proj-tags">
-        <span class="tag b">Python</span>
-        <span class="tag">API</span>
-        <span class="tag g">Security Scripts</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-api-mdp" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="dev">
-      <div class="proj-header">
-        <span class="proj-num">10</span>
-        <span class="proj-type type-dev">Development</span>
-      </div>
-      <div class="proj-title">Tic-Tac-Toe with Score Persistence</div>
-      <div class="proj-desc">Full-stack mini game in Python with SQLite for persistent score tracking, game history, and multi-round match management.</div>
-      <div class="proj-tags">
-        <span class="tag b">Python</span>
-        <span class="tag g">SQLite</span>
-        <span class="tag">Full Stack</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-tic-tac-toe" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="game">
-      <div class="proj-header">
-        <span class="proj-num">11</span>
-        <span class="proj-type type-game">Game Dev</span>
-      </div>
-      <div class="proj-title">3D Maze — Unity V1</div>
-      <div class="proj-desc">First-person 3D maze in Unity where the player navigates to a goal zone. Implements collision detection, player controller physics, and level completion logic.</div>
-      <div class="proj-tags">
-        <span class="tag p">Unity</span>
-        <span class="tag">C#</span>
-        <span class="tag b">3D Game</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <div class="proj-card reveal" data-cat="game">
-      <div class="proj-header">
-        <span class="proj-num">12</span>
-        <span class="proj-type type-game">Game Dev</span>
-      </div>
-      <div class="proj-title">3D Maze Advanced — Unity V2</div>
-      <div class="proj-desc">Extended version with coin collection system, dynamic score tracking, sound effects, and complete UI (main menu, pause, win screen). Full game loop with polished UX.</div>
-      <div class="proj-tags">
-        <span class="tag p">Unity</span>
-        <span class="tag">C#</span>
-        <span class="tag b">UI/UX</span>
-        <span class="tag g">Score System</span>
-      </div>
-      <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
   </div>
-</div>
 
-<footer>
-  <span>© 2025–2026 Abir Majdi</span>
-  <span><a href="index.htm">← Back to Home</a> &nbsp;·&nbsp; <a href="tp.htm">Lab Work (TPs) →</a></span>
-  <span style="color:var(--pink-glow)">&#x2764; Stay secure</span>
-</footer>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All (12)</button>
+    <button class="filter-btn" onclick="filterProjects('security', this)">&#128274; Cybersecurity</button>
+    <button class="filter-btn" onclick="filterProjects('dev', this)">&#128187; Development</button>
+    <button class="filter-btn" onclick="filterProjects('cloud', this)">&#9729;&#65039; Cloud &amp; Infra</button>
+    <button class="filter-btn" onclick="filterProjects('ml', this)">&#129302; AI / ML</button>
+    <button class="filter-btn" onclick="filterProjects('game', this)">&#127918; Game Dev</button>
+  </div>
 
-<script>
-  // Cursor
-  const cursor = document.getElementById('cursor');
-  const trail = document.getElementById('cursor-trail');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-    setTimeout(() => { trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; }, 80);
-  });
+  <div class="projects-section">
+    <div class="projects-grid">
 
-  // Reveal
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => { if(e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      <!-- 01 — MITRE -->
+      <div class="proj-card featured reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">01</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">MITRE ATT&amp;CK Simulation Platform</div>
+        <div class="proj-desc">Virtualized Active Directory lab (5 VMs) with simulation of 21 MITRE ATT&amp;CK
+          techniques across 7 tactics via Atomic Red Team. Centralized detection with Sysmon + Splunk. Detection
+          coverage: 85.7% — 3 custom Sigma rules created for blind spots.</div>
+        <div class="proj-tags">
+          <span class="tag">Cybersecurity</span>
+          <span class="tag p">Blue Team</span>
+          <span class="tag p">Red Team</span>
+          <span class="tag b">Splunk / SIEM</span>
+          <span class="tag g">Active Directory</span>
+          <span class="tag">MITRE ATT&amp;CK</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/mitre-attack-detection-lab" target="_blank" class="proj-link">View
+            on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('MITRE ATT&amp;CK Simulation Platform', 'https://github.com/penelopeeckhar/mitre-attack-detection-lab')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
 
-  // Filter
-  function filterProjects(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.proj-card').forEach(card => {
-      const show = cat === 'all' || card.dataset.cat === cat;
-      card.style.display = show ? '' : 'none';
+      <!-- 02 — Medical DB (inchangé) -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">02</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Anomalous Access Detection — Medical DB</div>
+        <div class="proj-desc">Analysis and journaling of suspicious activities in a MySQL medical database. Flask-based
+          detection engine with automated alerting and log centralization.</div>
+        <div class="proj-tags">
+          <span class="tag">Backend</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag b">Flask</span>
+          <span class="tag g">MySQL</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-flask-detection" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn soon">&#9654; Demo Coming Soon</button>
+        </div>
+      </div>
+
+      <!-- 03 — Honeypot -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">03</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">SSH Honeypot + Centralized Log Pipeline</div>
+        <div class="proj-desc">Deployed a Cowrie SSH honeypot with full log centralization, real-time attack analysis,
+          and behavioral fingerprinting of threat actors. Hardened with AppArmor and Docker isolation.</div>
+        <div class="proj-tags">
+          <span class="tag">Honeypot</span>
+          <span class="tag p">SOC / Blue Team</span>
+          <span class="tag b">Docker</span>
+          <span class="tag">AppArmor</span>
+          <span class="tag g">Log Analysis</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-honeypot-ssh" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('SSH Honeypot + Centralized Log Pipeline', 'https://github.com/penelopeeckhar/projet-honeypot-ssh')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 04 — TLS -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">04</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Custom TLS-like Secure Protocol</div>
+        <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS
+          handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
+        <div class="proj-tags">
+          <span class="tag">Cryptography</span>
+          <span class="tag p">Network Security</span>
+          <span class="tag b">Python</span>
+          <span class="tag">TLS/PKI</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Custom TLS-like Secure Protocol', 'https://github.com/penelopeeckhar/projet-crypto-tls')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 05 — OWASP -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">05</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Web App Hardening (OWASP A02)</div>
+        <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical
+          misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
+        <div class="proj-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag p">Blue Team</span>
+          <span class="tag p">Red Team</span>
+          <span class="tag b">Docker</span>
+          <span class="tag">Nmap</span>
+          <span class="tag g">OWASP</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Web App Hardening (OWASP A02)', 'https://github.com/penelopeeckhar/projet-misconfig-mayhem')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 06 — Wireshark -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">06</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Network Traffic Analysis (Wireshark)</div>
+        <div class="proj-desc">Monitoring and anomaly detection in local network traffic. Built custom detection filters
+          and documented attack patterns from captured PCAP files.</div>
+        <div class="proj-tags">
+          <span class="tag">Wireshark</span>
+          <span class="tag b">Network</span>
+          <span class="tag g">PCAP Analysis</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-wireshark" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Network Traffic Analysis (Wireshark)', 'https://github.com/penelopeeckhar/projet-wireshark')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 07 — Cloud -->
+      <div class="proj-card featured reveal" data-cat="cloud">
+        <div class="proj-header">
+          <span class="proj-num">07</span>
+          <span class="proj-type type-cloud">Cloud / Infra</span>
+        </div>
+        <div class="proj-title">Private Cloud Platform — Proxmox + Auto-Scaling</div>
+        <div class="proj-desc">Full private cloud infrastructure with HAProxy load balancing (Round Robin &amp; Least
+          Connections), Prometheus/Alertmanager monitoring, and automatic Flask server deployment triggered when CPU
+          &gt; 80% — zero human intervention required.</div>
+        <div class="proj-tags">
+          <span class="tag">Proxmox</span>
+          <span class="tag b">HAProxy</span>
+          <span class="tag g">Prometheus</span>
+          <span class="tag">Flask</span>
+          <span class="tag p">Autoscaling</span>
+          <span class="tag b">VMware</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/private-cloud-autoscaling-platform" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Private Cloud Platform — Proxmox + Auto-Scaling', 'https://github.com/penelopeeckhar/private-cloud-autoscaling-platform')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 08 — Scripts -->
+      <div class="proj-card reveal" data-cat="dev">
+        <div class="proj-header">
+          <span class="proj-num">08</span>
+          <span class="proj-type type-dev">Development</span>
+        </div>
+        <div class="proj-title">Automation &amp; Cybersecurity Scripts</div>
+        <div class="proj-desc">IP geolocation script via REST API and a cryptographically secure password generator with
+          custom entropy rules and clipboard integration.</div>
+        <div class="proj-tags">
+          <span class="tag b">Python</span>
+          <span class="tag">API</span>
+          <span class="tag g">Security Scripts</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-api-mdp" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Automation &amp; Cybersecurity Scripts', 'https://github.com/penelopeeckhar/projet-api-mdp')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 9 — Tic-Tac-Toe -->
+      <div class="proj-card reveal" data-cat="dev">
+        <div class="proj-header">
+          <span class="proj-num">09</span>
+          <span class="proj-type type-dev">Development</span>
+        </div>
+        <div class="proj-title">Tic-Tac-Toe with Score Persistence</div>
+        <div class="proj-desc">Full-stack mini game in Python with SQLite for persistent score tracking, game history,
+          and multi-round match management.</div>
+        <div class="proj-tags">
+          <span class="tag b">Python</span>
+          <span class="tag g">SQLite</span>
+          <span class="tag">Full Stack</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-tic-tac-toe" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Tic-Tac-Toe with Score Persistence', 'https://github.com/penelopeeckhar/projet-tic-tac-toe')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 10 — Unity V1 -->
+      <div class="proj-card reveal" data-cat="game">
+        <div class="proj-header">
+          <span class="proj-num">10</span>
+          <span class="proj-type type-game">Game Dev</span>
+        </div>
+        <div class="proj-title">3D Maze — Unity V1</div>
+        <div class="proj-desc">First-person 3D maze in Unity where the player navigates to a goal zone. Implements
+          collision detection, player controller physics, and level completion logic.</div>
+        <div class="proj-tags">
+          <span class="tag p">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag b">3D Game</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('3D Maze — Unity V1', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 11 — Unity V2 -->
+      <div class="proj-card reveal" data-cat="game">
+        <div class="proj-header">
+          <span class="proj-num">11</span>
+          <span class="proj-type type-game">Game Dev</span>
+        </div>
+        <div class="proj-title">3D Maze Advanced — Unity V2</div>
+        <div class="proj-desc">Extended version with coin collection system, dynamic score tracking, sound effects, and
+          complete UI (main menu, pause, win screen). Full game loop with polished UX.</div>
+        <div class="proj-tags">
+          <span class="tag p">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag b">UI/UX</span>
+          <span class="tag g">Score System</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('3D Maze Advanced — Unity V2', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VIDEO DEMO MODAL -->
+  <div id="video-modal">
+    <div class="video-modal-inner">
+      <div class="video-modal-header">
+        <span class="video-modal-title" id="video-modal-title"></span>
+        <button class="video-modal-close" onclick="closeDemo()">✕</button>
+      </div>
+      <div id="video-modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025–2026 Abir Majdi</span>
+    <span><a href="index.htm">← Back to Home</a></span>
+    <span style="color:var(--pink-glow)">&#x2764; Stay secure</span>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const trail = document.getElementById('cursor-trail');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+      setTimeout(() => { trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; }, 80);
     });
-  }
-</script>
+
+    // Reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Filter
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+
+    // Toutes les clés utilisent & (pas &amp;) — la recherche est normalisée dans openDemo
+    const DEMO_VIDEOS = {
+      'MITRE ATT&CK Simulation Platform': [
+        { label: 'Initial Access "T1566.002 — Spear-Phishing Link" :', src: 'https://drive.google.com/file/d/1k0p8Y84hEBiE4clsS_V2Wrjc2fc6aVMD/view' },
+        { label: 'Execution "T1053.005 — Scheduled Task / Job" :', src: 'https://drive.google.com/file/d/1_Y7QkKIbbpONXzaDwuTFIpUwky5XiPna/view' },
+        { label: 'Part 1 — Persistence "T1547.001 : Clés de registre Run" :', src: 'https://drive.google.com/file/d/1jWYodwpJ635gWVyS6SHZ6fLmcFE1te-S/view' },
+        { label: 'Part 2 — Persistence "T1547.001 : Clés de registre Run" :', src: 'https://drive.google.com/file/d/1_ep7w_R490R-FyUWvYK_g397jhf_yWu7/view' }
+      ],
+      'SSH Honeypot + Centralized Log Pipeline': [{ label: 'SSH Honeypot — ELK Stack :', src: 'https://drive.google.com/file/d/1bp0NVej-wHShJWNiqv3pTOovaIBszkP8/view?usp=sharing' }],
+      'Custom TLS-like Secure Protocol': [{
+        label: 'TLS Handshake & Secure Communication Demo :', src: 'https://drive.google.com/file/d/1eExAa0o33u0wTNEOxvxauw11e1wI5MCP/view?usp=drive_link'
+      }],
+      'Web App Hardening (OWASP A02)': [
+        { label: 'Accelerated and explained :', src: 'https://drive.google.com/file/d/1DnCVxZtxUxzv8Z2Nl-TPwiX7uwfLlcem/view?usp=sharing' },
+        { label: 'demo Misconfig Mayhem detailed step-by-step :', src: 'https://drive.google.com/file/d/1LwocpI1v_eGkhRuwchrtbljWwAjF-J5Y/view?usp=sharing' }
+      ],
+      'Network Traffic Analysis (Wireshark)': [{ label: 'Network Traffic Analysis', src: 'https://drive.google.com/file/d/1lTxLqrnXaFU5r0egPjw9CZreoKh8kNsI/view?usp=sharing' }],
+      'Private Cloud Platform — Proxmox + Auto-Scaling': [
+        { label: 'APPROACH 1 — ProxmoxVE :', src: 'https://drive.google.com/file/d/1Vi0OEsayQS8DS7vnjeizROXIVdaSn-Mc/view?usp=sharing' },
+        { label: 'APPROACH 2 — Load balancing :', src: 'https://drive.google.com/file/d/1cwA6o3R1lUo9ZQbpWp5CWIV6gdQPv3g7/view?usp=sharing' },
+        { label: 'APPROACH 2 — Autoscaling :', src: 'https://drive.google.com/file/d/13UcL5R4D_Iq8zVgE4anhp8zL5M3OlRga/view?usp=sharing' }
+      ],
+      'Automation & Cybersecurity Scripts': [{ label: 'Phone number geolocation with an interactive map :', src: 'https://drive.google.com/file/d/1yoT8yIcStuVL9lTN5Ns6GPrhdtcr6emM/view?usp=drive_link' }],
+      'Tic-Tac-Toe with Score Persistence': [{
+        label: 'Tic-Tac-Toe with Score Persistence', src: 'https://drive.google.com/file/d/1g1kOLBWBHq7spSMxPQwCcFld0wBmodjY/view?usp=sharing'
+      }],
+      '3D Maze — Unity V1': [{
+        label: 'First-person 3D maze with static level design', src: 'https://drive.google.com/file/d/1eSGcQ-D9nkSQYHSM04p4mcQqt6lHFXrQ/view?usp=drive_link'
+      }],
+      '3D Maze Advanced — Unity V2': [{
+        label: 'Procedurally generated 3D maze with advanced gameplay', src: 'https://drive.google.com/file/d/1d-ANV4qRmGIY9jv7TD1n5_-okmiUM-LZ/view?usp=drive_link'
+      }]
+    };
+
+    let activeVideoIndex = 0;
+    let currentVideos = [];
+
+    // ── FIX 1 : extrait uniquement l'ID Drive → URL propre sans ?usp=...
+    function toEmbedUrl(src) {
+      const driveMatch = src.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (driveMatch) return 'https://drive.google.com/file/d/' + driveMatch[1] + '/preview';
+      const ytMatch = src.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+      if (ytMatch) return 'https://www.youtube.com/embed/' + ytMatch[1];
+      return src;
+    }
+
+    // ── FIX 2 : détecte Drive et affiche un bouton d'ouverture au lieu d'un iframe bloqué
+    function isDriveUrl(src) {
+      return /drive\.google\.com/.test(src);
+    }
+
+    function renderVideoCarousel(videos) {
+      const body = document.getElementById('video-modal-body');
+      const v = videos[activeVideoIndex];
+      const total = videos.length;
+      const embedSrc = toEmbedUrl(v.src);
+
+      const tabsHtml = total > 1 ? `
+      <div class="video-tabs">
+        ${videos.map((vid, i) => `
+          <button class="video-tab ${i === activeVideoIndex ? 'active' : ''}"
+            onclick="switchVideo(${i})">${vid.label}</button>
+        `).join('')}
+      </div>` : '';
+
+      const navHtml = total > 1 ? `
+      <div class="video-nav">
+        <button class="video-nav-btn" onclick="switchVideo(${activeVideoIndex - 1})" ${activeVideoIndex === 0 ? 'disabled' : ''}>← Prev</button>
+        <span class="video-nav-count">${activeVideoIndex + 1} / ${total}</span>
+        <button class="video-nav-btn" onclick="switchVideo(${activeVideoIndex + 1})" ${activeVideoIndex === total - 1 ? 'disabled' : ''}>Next →</button>
+      </div>` : '';
+
+      // ── Si c'est un lien Drive : bouton stylisé au lieu d'un iframe bloqué
+      const videoHtml = isDriveUrl(v.src)
+        ? `<div class="drive-link-card">
+           <svg class="drive-icon" viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg">
+             <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+             <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+             <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+             <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+             <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+             <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+           </svg>
+           <p class="drive-link-label">
+             Google Drive does not allow direct video embedding.<br>
+Click below to watch the video in a new tab.
+           </p>
+           <a href="${embedSrc}" target="_blank" class="drive-open-btn">
+             &#9654; Open the Drive video
+           </a>
+         </div>`
+        : `<div class="video-ratio">
+           <iframe src="${embedSrc}" allowfullscreen allow="autoplay; encrypted-media"
+             sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+         </div>`;
+
+      body.innerHTML = `${tabsHtml}${videoHtml}${navHtml}`;
+    }
+
+    function switchVideo(index) {
+      if (index < 0 || index >= currentVideos.length) return;
+      activeVideoIndex = index;
+      renderVideoCarousel(currentVideos);
+    }
+
+    function openDemo(title, githubUrl) {
+      const modal = document.getElementById('video-modal');
+      const body = document.getElementById('video-modal-body');
+      document.getElementById('video-modal-title').textContent = title.replace(/&amp;/g, '&');
+
+      // Cherche la clé avec &amp; ET avec & (les deux formes possibles)
+      let entry = DEMO_VIDEOS[title]
+        || DEMO_VIDEOS[title.replace(/&amp;/g, '&')]
+        || DEMO_VIDEOS[title.replace(/&/g, '&amp;')]
+        || [];
+      if (typeof entry === 'string') entry = entry ? [{ label: 'Demo', src: entry }] : [];
+      const videos = entry.filter(v => v && v.src && v.src.trim() !== '');
+
+      if (videos.length > 0) {
+        currentVideos = videos;
+        activeVideoIndex = 0;
+        renderVideoCarousel(videos);
+      } else {
+        currentVideos = [];
+        body.innerHTML = `
+        <div class="video-placeholder">
+          <div class="placeholder-icon">&#9654;</div>
+          <p>Demo video not uploaded yet.<br>View the full project on GitHub:</p>
+          <a href="${githubUrl}" target="_blank">View on GitHub →</a>
+        </div>`;
+      }
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemo() {
+      document.getElementById('video-modal').classList.remove('open');
+      document.getElementById('video-modal-body').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('video-modal').addEventListener('click', function (e) { if (e.target === this) closeDemo(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemo(); });
+  </script>
 </body>
+
 </html>
