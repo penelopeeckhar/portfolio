@@ -761,7 +761,7 @@
       <li><a href="projets.htm" class="active">Projects</a></li>
       <li><a href="index.htm#contact">Contact</a></li>
     </ul>
-    <a href="CV stage d'application.pdf" class="nav-cv" target="_blank">Download CV</a>
+    <a href="/CV_Abir_Majdi_ATS.pdf" class="nav-cv" target="_blank">Download CV</a>
   </nav>
 
   <div class="page-header">
@@ -774,7 +774,7 @@
   </div>
 
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterProjects('all', this)">All (12)</button>
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All (15)</button>
     <button class="filter-btn" onclick="filterProjects('security', this)">&#128274; Cybersecurity</button>
     <button class="filter-btn" onclick="filterProjects('dev', this)">&#128187; Development</button>
     <button class="filter-btn" onclick="filterProjects('cloud', this)">&#9729;&#65039; Cloud &amp; Infra</button>
@@ -785,10 +785,69 @@
   <div class="projects-section">
     <div class="projects-grid">
 
-      <!-- 01 — MITRE -->
+      <!-- 01 — SecureOps Shield -->
       <div class="proj-card featured reveal" data-cat="security">
         <div class="proj-header">
           <span class="proj-num">01</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">SecureOps Shield — DevSecOps Security Pipeline</div>
+        <div class="proj-desc">Progressive multi-stage DevSecOps pipeline (PFA) hardening and defending an OWASP
+          Juice Shop deployment: multi-stage distroless Docker images cut from 3.99 GB / 350 CVEs down to 497 MB
+          / 51 CVEs, authenticated DAST scanning with OWASP ZAP, CIS benchmark auditing on a k3s cluster with
+          kube-bench, and a full detection-to-response chain — Wazuh FIM alerts automatically opening cases in
+          TheHive and triggering Cortex analyzers — capped by a centralized dashboard with a global security
+          score.</div>
+        <div class="proj-tags">
+          <span class="tag">DevSecOps</span>
+          <span class="tag p">CI/CD Security</span>
+          <span class="tag b">Docker</span>
+          <span class="tag g">Kubernetes (k3s)</span>
+          <span class="tag">OWASP ZAP</span>
+          <span class="tag p">Wazuh / TheHive / Cortex</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/secureops-shield" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('SecureOps Shield — DevSecOps Security Pipeline', 'https://github.com/penelopeeckhar/secureops-shield')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+      <!-- 02 — MedSecureGateway -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">02</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">MedSecureGateway — Email Security Gateway for Healthcare</div>
+        <div class="proj-desc">End-of-year project (PFA) built during an internship at Morocco's Ministry of
+          Health. Intercepts incoming email attachments across 3 isolated VirtualBox VMs, runs multi-format
+          static analysis (YARA, macro and PDF scanning, PE inspection, VirusTotal lookups), scores risk on a
+          weighted 0–100 scale, and detonates suspicious files in cross-OS behavioral sandboxes (Linux syscalls
+          + Windows Sysmon) before a SOC-style dashboard renders the final verdict — safe, suspicious, or
+          malicious.</div>
+        <div class="proj-tags">
+          <span class="tag">Cybersecurity</span>
+          <span class="tag p">Sandboxing</span>
+          <span class="tag b">Flask</span>
+          <span class="tag g">PostgreSQL</span>
+          <span class="tag">YARA</span>
+          <span class="tag p">SOC Dashboard</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/MedSecureGateway" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('MedSecureGateway — Email Security Gateway for Healthcare', 'https://github.com/penelopeeckhar/MedSecureGateway')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 03 — MITRE ATT&CK Simulation Platform -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">03</span>
           <span class="proj-type type-security">Cybersecurity</span>
         </div>
         <div class="proj-title">MITRE ATT&amp;CK Simulation Platform</div>
@@ -812,130 +871,10 @@
         </div>
       </div>
 
-      <!-- 02 — Medical DB (inchangé) -->
-      <div class="proj-card reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">02</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Anomalous Access Detection — Medical DB</div>
-        <div class="proj-desc">Analysis and journaling of suspicious activities in a MySQL medical database. Flask-based
-          detection engine with automated alerting and log centralization.</div>
-        <div class="proj-tags">
-          <span class="tag">Backend</span>
-          <span class="tag">Cybersecurity</span>
-          <span class="tag b">Flask</span>
-          <span class="tag g">MySQL</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-flask-detection" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn soon">&#9654; Demo Coming Soon</button>
-        </div>
-      </div>
-
-      <!-- 03 — Honeypot -->
-      <div class="proj-card reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">03</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">SSH Honeypot + Centralized Log Pipeline</div>
-        <div class="proj-desc">Deployed a Cowrie SSH honeypot with full log centralization, real-time attack analysis,
-          and behavioral fingerprinting of threat actors. Hardened with AppArmor and Docker isolation.</div>
-        <div class="proj-tags">
-          <span class="tag">Honeypot</span>
-          <span class="tag p">SOC / Blue Team</span>
-          <span class="tag b">Docker</span>
-          <span class="tag">AppArmor</span>
-          <span class="tag g">Log Analysis</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-honeypot-ssh" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('SSH Honeypot + Centralized Log Pipeline', 'https://github.com/penelopeeckhar/projet-honeypot-ssh')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 04 — TLS -->
-      <div class="proj-card reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">04</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Custom TLS-like Secure Protocol</div>
-        <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS
-          handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
-        <div class="proj-tags">
-          <span class="tag">Cryptography</span>
-          <span class="tag p">Network Security</span>
-          <span class="tag b">Python</span>
-          <span class="tag">TLS/PKI</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub
-            →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Custom TLS-like Secure Protocol', 'https://github.com/penelopeeckhar/projet-crypto-tls')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 05 — OWASP -->
-      <div class="proj-card reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">05</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Web App Hardening (OWASP A02)</div>
-        <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical
-          misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
-        <div class="proj-tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag p">Blue Team</span>
-          <span class="tag p">Red Team</span>
-          <span class="tag b">Docker</span>
-          <span class="tag">Nmap</span>
-          <span class="tag g">OWASP</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Web App Hardening (OWASP A02)', 'https://github.com/penelopeeckhar/projet-misconfig-mayhem')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 06 — Wireshark -->
-      <div class="proj-card reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">06</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Network Traffic Analysis (Wireshark)</div>
-        <div class="proj-desc">Monitoring and anomaly detection in local network traffic. Built custom detection filters
-          and documented attack patterns from captured PCAP files.</div>
-        <div class="proj-tags">
-          <span class="tag">Wireshark</span>
-          <span class="tag b">Network</span>
-          <span class="tag g">PCAP Analysis</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-wireshark" target="_blank" class="proj-link">View on GitHub
-            →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Network Traffic Analysis (Wireshark)', 'https://github.com/penelopeeckhar/projet-wireshark')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 07 — Cloud -->
+      <!-- 04 — Private Cloud Platform -->
       <div class="proj-card featured reveal" data-cat="cloud">
         <div class="proj-header">
-          <span class="proj-num">07</span>
+          <span class="proj-num">04</span>
           <span class="proj-type type-cloud">Cloud / Infra</span>
         </div>
         <div class="proj-title">Private Cloud Platform — Proxmox + Auto-Scaling</div>
@@ -959,10 +898,158 @@
         </div>
       </div>
 
-      <!-- 08 — Scripts -->
-      <div class="proj-card reveal" data-cat="dev">
+      <!-- 05 — Kaggriculture -->
+      <div class="proj-card featured reveal" data-cat="ml">
+        <div class="proj-header">
+          <span class="proj-num">05</span>
+          <span class="proj-type type-ml">AI / ML</span>
+        </div>
+        <div class="proj-title">Kaggriculture — Competitive Kaggle Agent</div>
+        <div class="proj-desc">Autonomous agent for a competitive 2-player Kaggle ladder (farm management
+          simulation, ~3800 teams). Combines a time-bounded beam search with a zone-aware greedy policy for
+          hired labor, backed by a local simulator mirroring the official game engine. Iterated through 6
+          submitted versions to raise the official ladder score from 292.6 to 342.8, with a median decision
+          time of 241.5ms against a 450ms per-turn budget and 719 rounds completed without a crash.</div>
+        <div class="proj-tags">
+          <span class="tag">AI Agent</span>
+          <span class="tag p">Search / Heuristics</span>
+          <span class="tag b">Python</span>
+          <span class="tag g">Docker</span>
+          <span class="tag">Kaggle Competition</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/kaggriculture-agent" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Kaggriculture — Competitive Kaggle Agent', 'https://github.com/penelopeeckhar/kaggriculture-agent')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 06 — Anomalous Access Detection (Medical DB) -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">06</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Anomalous Access Detection — Medical DB</div>
+        <div class="proj-desc">Analysis and journaling of suspicious activities in a MySQL medical database. Flask-based
+          detection engine with automated alerting and log centralization.</div>
+        <div class="proj-tags">
+          <span class="tag">Backend</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag b">Flask</span>
+          <span class="tag g">MySQL</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-flask-detection" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn soon">&#9654; Demo Coming Soon</button>
+        </div>
+      </div>
+
+      <!-- 07 — SSH Honeypot -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">07</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">SSH Honeypot + Centralized Log Pipeline</div>
+        <div class="proj-desc">Deployed a Cowrie SSH honeypot with full log centralization, real-time attack analysis,
+          and behavioral fingerprinting of threat actors. Hardened with AppArmor and Docker isolation.</div>
+        <div class="proj-tags">
+          <span class="tag">Honeypot</span>
+          <span class="tag p">SOC / Blue Team</span>
+          <span class="tag b">Docker</span>
+          <span class="tag">AppArmor</span>
+          <span class="tag g">Log Analysis</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-honeypot-ssh" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('SSH Honeypot + Centralized Log Pipeline', 'https://github.com/penelopeeckhar/projet-honeypot-ssh')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 08 — Web App Hardening (OWASP) -->
+      <div class="proj-card  featured reveal" data-cat="security">
         <div class="proj-header">
           <span class="proj-num">08</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Web App Hardening (OWASP A02)</div>
+        <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical
+          misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
+        <div class="proj-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag p">Blue Team</span>
+          <span class="tag p">Red Team</span>
+          <span class="tag b">Docker</span>
+          <span class="tag">Nmap</span>
+          <span class="tag g">OWASP</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Web App Hardening (OWASP A02)', 'https://github.com/penelopeeckhar/projet-misconfig-mayhem')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 09 — Custom TLS-like Secure Protocol -->
+      <div class="proj-card featured reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">09</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Custom TLS-like Secure Protocol</div>
+        <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS
+          handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
+        <div class="proj-tags">
+          <span class="tag">Cryptography</span>
+          <span class="tag p">Network Security</span>
+          <span class="tag b">Python</span>
+          <span class="tag">TLS/PKI</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Custom TLS-like Secure Protocol', 'https://github.com/penelopeeckhar/projet-crypto-tls')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 10 — Network Traffic Analysis (Wireshark) -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">10</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Network Traffic Analysis (Wireshark)</div>
+        <div class="proj-desc">Monitoring and anomaly detection in local network traffic. Built custom detection filters
+          and documented attack patterns from captured PCAP files.</div>
+        <div class="proj-tags">
+          <span class="tag">Wireshark</span>
+          <span class="tag b">Network</span>
+          <span class="tag g">PCAP Analysis</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-wireshark" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Network Traffic Analysis (Wireshark)', 'https://github.com/penelopeeckhar/projet-wireshark')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 11 — Automation & Cybersecurity Scripts -->
+      <div class="proj-card reveal" data-cat="dev">
+        <div class="proj-header">
+          <span class="proj-num">11</span>
           <span class="proj-type type-dev">Development</span>
         </div>
         <div class="proj-title">Automation &amp; Cybersecurity Scripts</div>
@@ -982,77 +1069,7 @@
         </div>
       </div>
 
-      <!-- 9 — Tic-Tac-Toe -->
-      <div class="proj-card reveal" data-cat="dev">
-        <div class="proj-header">
-          <span class="proj-num">09</span>
-          <span class="proj-type type-dev">Development</span>
-        </div>
-        <div class="proj-title">Tic-Tac-Toe with Score Persistence</div>
-        <div class="proj-desc">Full-stack mini game in Python with SQLite for persistent score tracking, game history,
-          and multi-round match management.</div>
-        <div class="proj-tags">
-          <span class="tag b">Python</span>
-          <span class="tag g">SQLite</span>
-          <span class="tag">Full Stack</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-tic-tac-toe" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Tic-Tac-Toe with Score Persistence', 'https://github.com/penelopeeckhar/projet-tic-tac-toe')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 10 — Unity V1 -->
-      <div class="proj-card reveal" data-cat="game">
-        <div class="proj-header">
-          <span class="proj-num">10</span>
-          <span class="proj-type type-game">Game Dev</span>
-        </div>
-        <div class="proj-title">3D Maze — Unity V1</div>
-        <div class="proj-desc">First-person 3D maze in Unity where the player navigates to a goal zone. Implements
-          collision detection, player controller physics, and level completion logic.</div>
-        <div class="proj-tags">
-          <span class="tag p">Unity</span>
-          <span class="tag">C#</span>
-          <span class="tag b">3D Game</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main" target="_blank"
-            class="proj-link">View on GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('3D Maze — Unity V1', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 11 — Unity V2 -->
-      <div class="proj-card reveal" data-cat="game">
-        <div class="proj-header">
-          <span class="proj-num">11</span>
-          <span class="proj-type type-game">Game Dev</span>
-        </div>
-        <div class="proj-title">3D Maze Advanced — Unity V2</div>
-        <div class="proj-desc">Extended version with coin collection system, dynamic score tracking, sound effects, and
-          complete UI (main menu, pause, win screen). Full game loop with polished UX.</div>
-        <div class="proj-tags">
-          <span class="tag p">Unity</span>
-          <span class="tag">C#</span>
-          <span class="tag b">UI/UX</span>
-          <span class="tag g">Score System</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced" target="_blank"
-            class="proj-link">View on GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('3D Maze Advanced — Unity V2', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 12 — Data Cleaning AI -->
+      <!-- 12 — Data Cleaning & ML Pipeline (Academic Labs) -->
       <div class="proj-card reveal" data-cat="ml">
         <div class="proj-header">
           <span class="proj-num">12</span>
@@ -1074,6 +1091,77 @@
           <button class="demo-btn soon">&#9654; Demo Coming Soon</button>
         </div>
       </div>
+
+      <!-- 13 — Tic-Tac-Toe -->
+      <div class="proj-card reveal" data-cat="dev">
+        <div class="proj-header">
+          <span class="proj-num">13</span>
+          <span class="proj-type type-dev">Development</span>
+        </div>
+        <div class="proj-title">Tic-Tac-Toe with Score Persistence</div>
+        <div class="proj-desc">Full-stack mini game in Python with SQLite for persistent score tracking, game history,
+          and multi-round match management.</div>
+        <div class="proj-tags">
+          <span class="tag b">Python</span>
+          <span class="tag g">SQLite</span>
+          <span class="tag">Full Stack</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-tic-tac-toe" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Tic-Tac-Toe with Score Persistence', 'https://github.com/penelopeeckhar/projet-tic-tac-toe')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 14 — 3D Maze Advanced (Unity V2) -->
+      <div class="proj-card reveal" data-cat="game">
+        <div class="proj-header">
+          <span class="proj-num">14</span>
+          <span class="proj-type type-game">Game Dev</span>
+        </div>
+        <div class="proj-title">3D Maze Advanced — Unity V2</div>
+        <div class="proj-desc">Extended version with coin collection system, dynamic score tracking, sound effects, and
+          complete UI (main menu, pause, win screen). Full game loop with polished UX.</div>
+        <div class="proj-tags">
+          <span class="tag p">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag b">UI/UX</span>
+          <span class="tag g">Score System</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('3D Maze Advanced — Unity V2', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/version2-advanced')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 15 — 3D Maze (Unity V1) -->
+      <div class="proj-card featured reveal" data-cat="game">
+        <div class="proj-header">
+          <span class="proj-num">15</span>
+          <span class="proj-type type-game">Game Dev</span>
+        </div>
+        <div class="proj-title">3D Maze — Unity V1</div>
+        <div class="proj-desc">First-person 3D maze in Unity where the player navigates to a goal zone. Implements
+          collision detection, player controller physics, and level completion logic.</div>
+        <div class="proj-tags">
+          <span class="tag p">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag b">3D Game</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('3D Maze — Unity V1', 'https://github.com/penelopeeckhar/projet-labyrinthe-unity/tree/main')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -1121,6 +1209,19 @@
 
     // Toutes les clés utilisent & (pas &amp;) — la recherche est normalisée dans openDemo
     const DEMO_VIDEOS = {
+      'Kaggriculture — Competitive Kaggle Agent': [
+        { label: 'Démonstration de l\'agent Kaggriculture :', src: 'https://drive.google.com/file/d/1MHPmiDrCD_ep_SoMuqwOCuh4Z2dVmGwv/view?usp=sharing' }
+      ],
+      'MedSecureGateway — Email Security Gateway for Healthcare': [
+        { label: 'Vue d\'ensemble — interception → analyse → verdict :', src: 'https://drive.google.com/file/d/1lY95T44O2SjVZfBVBrF9Sy7TD07yCgBL/view?usp=sharing' },
+        { label: 'Analyse VirusTotal & scoring de risque :', src: 'https://drive.google.com/file/d/1M4jNgLLCigicaMgl_0MvAvn6T4MBinvw/view?usp=sharing' },
+        { label: 'Verdict SAFE — pièce jointe transmise :', src: 'https://drive.google.com/file/d/1cbAW8zjxzVxssA2ZXd5W1c5aNnxW3w43/view?usp=sharing' },
+        { label: 'Verdict SAFE — suite :', src: 'https://drive.google.com/file/d/1lqXS4YAQ_mG0BzFGFSYLBCg9JhM43Rv8/view?usp=sharing' },
+        { label: 'Verdict SUSPICIOUS — détonation en sandbox :', src: 'https://drive.google.com/file/d/1VSRkKfTXJyJrXLKZh3zGNNQR985xEhzd/view?usp=sharing' }
+      ],
+      'SecureOps Shield — DevSecOps Security Pipeline': [
+        { label: 'Démonstration SecureOps Shield :', src: 'https://drive.google.com/file/d/1jDqAU7jeTyRt1J4_x0iDOBfEYZnnmCnG/view?usp=sharing' }
+      ],
       'MITRE ATT&CK Simulation Platform': [
         { label: 'Initial Access "T1566.002 — Spear-Phishing Link" :', src: 'https://drive.google.com/file/d/1k0p8Y84hEBiE4clsS_V2Wrjc2fc6aVMD/view' },
         { label: 'Execution "T1053.005 — Scheduled Task / Job" :', src: 'https://drive.google.com/file/d/1_Y7QkKIbbpONXzaDwuTFIpUwky5XiPna/view' },
