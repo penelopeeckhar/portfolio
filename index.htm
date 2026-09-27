@@ -78,6 +78,24 @@
     .focus-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; margin-top: 2rem; }
     .focus-list li { display: flex; align-items: center; gap: .8rem; font-family: var(--font-mono); font-size: .78rem; color: var(--text); }
     .focus-list li::before { content: '›'; color: var(--pink-glow); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+    .exp-timeline { position: relative; max-width: 760px; }
+    .exp-line { position: absolute; left: 5px; top: .5rem; bottom: 1rem; width: 1px; background: var(--border); }
+    .exp-item { position: relative; padding-left: 2.8rem; margin-bottom: 2.2rem; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-dot { position: absolute; left: 0; top: .55rem; width: 11px; height: 11px; border-radius: 50%; background: var(--pink-glow); box-shadow: 0 0 10px rgba(255,133,161,.6); }
+    .exp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .exp-card:hover { border-color: rgba(255,182,193,.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(255,182,193,.08); }
+    .exp-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .3rem; }
+    .exp-company { font-family: var(--font-head); font-size: 1.08rem; color: var(--text); }
+    .exp-location { display: inline-flex; align-items: center; gap: .35rem; font-family: var(--font-mono); font-size: .68rem; color: var(--muted); letter-spacing: .04em; white-space: nowrap; }
+    .exp-role { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .82rem; color: var(--pink-glow); margin-bottom: .5rem; }
+    .exp-dates { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .7rem; color: var(--mint); letter-spacing: .06em; margin-bottom: 1.1rem; }
+    .exp-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .exp-list li { font-size: .85rem; color: var(--muted); line-height: 1.6; padding-left: 1.1rem; position: relative; }
+    .exp-list li::before { content: '▹'; position: absolute; left: 0; color: var(--pink-glow); font-size: .8rem; }
     #skills .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1rem; }
     .skill-chip { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .9rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .68rem; color: var(--muted); transition: border-color .2s, transform .2s, box-shadow .2s; text-align: center; }
     .skill-chip:hover { border-color: var(--pink); color: var(--pink-light); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,133,161,.12); }
@@ -164,6 +182,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#certifications">Certs</a></li>
     <li><a href="#projects-preview">Projects</a></li>
@@ -242,9 +261,73 @@
   </div>
 </section>
 
+<section id="experience">
+  <div class="reveal">
+    <p class="section-label">// 02 — Professional Experience</p>
+    <h2 class="section-title">Where I've <em>Worked</em></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="exp-timeline">
+    <div class="exp-line"></div>
+
+    <!-- MedSecureGateway — Ministère de la Santé -->
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">MedSecureGateway — Ministère de la Santé</div>
+          <span class="exp-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Rabat, Morocco</span>
+        </div>
+        <p class="exp-role"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> PFA Internship — Secure Email Gateway Developer</p>
+        <p class="exp-dates"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Jul – Aug 2026</p>
+        <ul class="exp-list">
+          <li>Designed and built, independently, a Secure Email Gateway on a 3-VM architecture: Flask/PostgreSQL/SQLAlchemy backend with a real-time dashboard, plus 2 network-isolated sandbox VMs (Host-Only, no internet access).</li>
+          <li>Built a static analysis pipeline (YARA, oletools/olevba macro scanning, ExifTool metadata) with VirusTotal reputation checks across 70+ engines, complemented by monitored dynamic sandbox execution (inotify-tools) feeding an automated risk-scoring engine.</li>
+          <li>Calibrated YARA detection on 20 benign/malicious samples (MalwareBazaar, EICAR) and validated it with a simulated phishing attack (SMTP injection via swaks) — 100% detection, 0% false positives across 6 YARA rules.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CHU Hassan II — hospital SIEM -->
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">CHU Hassan II</div>
+          <span class="exp-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Fès, Morocco</span>
+        </div>
+        <p class="exp-role"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Introductory Internship — SIEM Developer</p>
+        <p class="exp-dates"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Jul 2025</p>
+        <ul class="exp-list">
+          <li>Developed a lightweight SIEM (Python/Flask/MySQL) with 4 behavioral detection rules — off-hours access, mass extraction (≥10 req/10min), brute force (5 attempts/5min), SQL injection (5 req/5min) — to monitor a hospital database.</li>
+          <li>Set up MySQL triggers for automated logging, a severity-tiered Flask dashboard, an integrated SQLMap scanning module, and automatic email alerts with daily CSV reports.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Baccalauréat — Doroub El Maarifa -->
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">Doroub El Maarifa</div>
+          <span class="exp-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Fès, Morocco</span>
+        </div>
+        <p class="exp-role"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg> Baccalauréat, Physical Sciences — Mention Très Bien</p>
+        <p class="exp-dates"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 2022</p>
+        <ul class="exp-list">
+          <li>Graduated with High Honors (Mention Très Bien), laying the scientific foundation that led into the Engineering track at ENSA Fès.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="skills">
   <div class="reveal">
-    <p class="section-label">// 02 — Technical Stack</p>
+    <p class="section-label">// 03 — Technical Stack</p>
     <h2 class="section-title">Tools &amp; <em>Technologies</em></h2>
     <div class="divider"></div>
   </div>
@@ -310,14 +393,50 @@
 <!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="reveal">
-    <p class="section-label">// 03 — Certifications</p>
+    <p class="section-label">// 04 — Certifications</p>
     <h2 class="section-title">Learning <em>Credentials</em></h2>
     <div class="divider"></div>
   </div>
 
   <div class="certs-grid" id="certs-grid">
 
-    <!-- ══ VISIBLE (6 cards) ══ -->
+    <!-- ══ VISIBLE (8 cards) ══ -->
+
+    <!-- 0a. InternNova — Cybersecurity Internship -->
+    <div class="cert-card reveal">
+      <div class="cert-icon-wrap" style="width:72px;height:52px;top:0.7rem;right:1.25rem">
+        <img src="https://internnova.co.in/logo.png" alt="InternNova logo" />
+      </div>
+      <div class="cert-issuer">InternNova</div>
+      <div class="cert-name">6-Week Cyber Security Internship Program</div>
+      <div class="cert-desc">Certificate of Internship — assigned tasks and projects completed with strong technical aptitude and professionalism. Aug – Sep 2026.</div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem">
+        <span class="cert-status completed">Completed</span>
+        <button class="cert-view-btn" onclick="openCert('Certificate_Abir_Majdi.pdf')">View Certificate ↗</button>
+      </div>
+    </div>
+
+    <!-- 0b. TechBiz Security Academy — Hands-On Cybersecurity Labs -->
+    <div class="cert-card reveal">
+      <div class="cert-icon-wrap">
+        <svg viewBox="241 247 122 101" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tbsMark" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff85a1"/>
+              <stop offset="1" stop-color="#d4b8f0"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#tbsMark)" d="M355.08,281.94h-40.04s-.01,58.49-.01,58.49c0,.29-.31,1.08-.42,1.34-.14.34-1.23.24-1.67-.2l-26.19-26.21-.11-22.43,16.8-.07c3.46-3.46,6.34-6.23,9.81-10.79l-39.63-.22-26.48-26.49c-.36-.36-.3-1.64.14-2.07l39.83.05,8.78,8.98,18.56,18.6c.58-5.85.44-10.41.44-15.82l-11.56-11.79h25.93c1.3.43,2.47,2.03,3.64,3.21l23.01,23.16c.43.43.69,1.37.52,1.58-.22.27-.93.67-1.34.67Z"/>
+        </svg>
+      </div>
+      <div class="cert-issuer">TechBiz Security Academy</div>
+      <div class="cert-name">Hands-On Cybersecurity Labs — Certificate of Appreciation</div>
+      <div class="cert-desc">Recognized for dedication, curiosity and practical skill shown across hands-on cybersecurity lab work. 2026.</div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem">
+        <span class="cert-status completed">Completed</span>
+        <button class="cert-view-btn" onclick="openCert('Certificate CERT-2026-00139 — TechBiz Security Academy_organized.pdf')">View Certificate ↗</button>
+      </div>
+    </div>
 
     <!-- 1. Google Cybersecurity -->
     <div class="cert-card reveal">
@@ -533,6 +652,17 @@
 
     <!-- ══ IN PROGRESS ══ -->
 
+    <!-- 16. TechBiz Security Academy — Internship Completion (PDF pending) -->
+    <div class="cert-card reveal cert-hidden">
+      <div class="cert-icon-wrap">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 2 L28 7 V16 C28 23 22.5 28.5 16 30 C9.5 28.5 4 23 4 16 V7 Z" fill="#d4b8f0"/></svg>
+      </div>
+      <div class="cert-issuer">TechBiz Security Academy</div>
+      <div class="cert-name">Cybersecurity Internship — Completion Certificate</div>
+      <div class="cert-desc">Internship completion certificate — PDF to be added once issued.</div>
+      <div style="margin-top:1rem"><span class="cert-status in-progress">Pending</span></div>
+    </div>
+
     <!-- 17. TryHackMe Jr PenTest -->
     <!-- <div class="cert-card reveal"> -->
       <div class="cert-card reveal cert-hidden">
@@ -578,7 +708,7 @@
 
 <section id="projects-preview">
   <div class="reveal">
-    <p class="section-label">// 04 — Selected Projects</p>
+    <p class="section-label">// 05 — Selected Projects</p>
     <h2 class="section-title">Recent <em>Work</em></h2>
     <div class="divider"></div>
   </div>
@@ -612,7 +742,7 @@
 
 <section id="contact">
   <div class="reveal">
-    <p class="section-label">// 05 — Get In Touch</p>
+    <p class="section-label">// 06 — Get In Touch</p>
     <h2 class="section-title">Let's <em>Connect</em></h2>
     <div class="divider"></div>
   </div>
