@@ -195,8 +195,8 @@
   <div class="hero-text">
     <div class="hero-badge">Available for internships &amp; opportunities</div>
     <h1 class="hero-name">Abir<br>Majdi</h1>
-    <p class="hero-role">// Cybersecurity Engineering Student</p>
-    <p class="hero-desc">Passionate about <strong>threat detection</strong>, <strong>SOC operations</strong>, and <strong>secure system design</strong> — I build reliable, resilient, and attack-resistant digital infrastructure.<br><br>5th-year Engineering student in <strong>Digital Development &amp; Cybersecurity</strong>, graduating July 2027.</p>
+    <p class="hero-role">// Cybersecurity Engineer — DevSecOps &amp; AppSec</p>
+    <p class="hero-desc">Building toward <strong>Security Engineering</strong>, at the crossroads of <strong>DevSecOps</strong>, <strong>Application Security</strong>, and <strong>Cloud &amp; Container Security</strong> — I bake detection and automated response into the pipeline instead of bolting it on afterward.<br><br>5th-year Engineering student in <strong>Digital Development &amp; Cybersecurity</strong>, graduating July 2027.</p>
     <div class="hero-ctas">
       <a href="projets.htm" class="btn-primary">View Projects →</a>
     </div>
@@ -218,9 +218,9 @@
       <div class="term-line">$ <span>whoami</span></div>
       <div class="term-line" style="color:var(--pink-light)">abir@cybersec ~</div>
       <div class="term-line">$ <span>status</span></div>
-      <div class="term-line" style="color:var(--mint)">→ Blue Team ready</div>
+      <div class="term-line" style="color:var(--mint)">→ DevSecOps ready</div>
       <div class="term-line">$ <span>skills --top</span></div>
-      <div class="term-line" style="color:var(--lavender)">SOC · SIEM · Pentest<span class="term-cursor"></span></div>
+      <div class="term-line" style="color:var(--lavender)">DevSecOps · AppSec · Cloud Security<span class="term-cursor"></span></div>
     </div>
   </div>
 </section>
@@ -233,16 +233,16 @@
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a 5th-year engineering student specializing in <strong>Digital Development &amp; Cybersecurity</strong>. My focus lies at the intersection of offensive and defensive security — I believe you can't defend what you don't understand how to break.</p>
-      <p>Throughout my academic journey, I've built hands-on expertise in <strong>log analysis</strong>, system supervision, anomaly detection, web application hardening, and secure infrastructure design. I'm fluent in Dockerized environments, network traffic analysis, applied cryptography, and secure communication protocols.</p>
-      <p>I'm particularly drawn to <strong>SOC environments</strong>, Threat Intelligence, and proactive defense strategies — designing systems that are not just functional, but truly <strong>resilient under pressure</strong>.</p>
+      <p>I'm a 5th-year engineering student specializing in <strong>Digital Development &amp; Cybersecurity</strong>, building toward a career as a <strong>Security Engineer</strong> focused on <strong>DevSecOps</strong>, <strong>Application Security</strong>, and <strong>Cloud Security</strong>. I believe you can't defend what you don't understand how to break — so I work on both sides: hardening and automating security into CI/CD pipelines, and testing the applications those pipelines ship.</p>
+      <p>My flagship project, <strong>SecureOps Shield</strong>, traces a full DevSecOps chain — SAST, DAST, SCA, secrets scanning, progressive container hardening, a CIS-audited Kubernetes (k3s) cluster, and an automated Wazuh → TheHive → Cortex detection-to-response pipeline. <strong>MedSecureGateway</strong> pushes into email security and malware analysis (YARA, sandboxing, IOC scoring), and my MITRE ATT&amp;CK lab and SIEM work (ELK, Sigma) round out a detection engineering angle.</p>
+      <p>I'm particularly drawn to environments where security is <strong>engineered into the pipeline</strong> rather than bolted on afterward — and I'm actively building toward AWS/Azure and Infrastructure-as-Code (Terraform) to round out the cloud security side.</p>
       <ul class="focus-list">
-        <li>SOC Operations &amp; Threat Detection</li>
-        <li>SIEM Configuration (Splunk, ELK)</li>
-        <li>Red Team / Blue Team Exercises</li>
-        <li>Secure Application Development</li>
-        <li>Network Traffic Analysis</li>
-        <li>Applied Cryptography &amp; TLS/PKI</li>
+        <li>DevSecOps &amp; CI/CD Security (SAST/DAST/SCA)</li>
+        <li>Application Security (OWASP, ZAP, Semgrep)</li>
+        <li>Cloud &amp; Container Security (Docker, Kubernetes)</li>
+        <li>Detection Engineering (Wazuh, ELK, MITRE ATT&amp;CK)</li>
+        <li>Security Automation (Python)</li>
+        <li>Malware Analysis &amp; Threat Detection</li>
       </ul>
     </div>
     <div class="reveal" style="padding-top:.5rem">
@@ -250,7 +250,7 @@
         <div style="color:var(--pink-glow);margin-bottom:1.2rem;letter-spacing:.1em">// CURRENT FOCUS</div>
         <div style="margin-bottom:1rem"><div style="color:var(--muted);margin-bottom:.3rem">PROGRAM</div><div style="color:var(--text)">Engineering — Digital Dev &amp; Cybersecurity</div></div>
         <div style="margin-bottom:1rem"><div style="color:var(--muted);margin-bottom:.3rem">YEAR</div><div style="color:var(--text)">5th Year (2026–2027)</div></div>
-        <div style="margin-bottom:1rem"><div style="color:var(--muted);margin-bottom:.3rem">INTERESTS</div><div style="color:var(--mint)">Blue Team · Red Team · MITRE ATT&amp;CK</div></div>
+        <div style="margin-bottom:1rem"><div style="color:var(--muted);margin-bottom:.3rem">INTERESTS</div><div style="color:var(--mint)">DevSecOps · AppSec · Cloud Security</div></div>
         <div style="margin-bottom:1.5rem"><div style="color:var(--muted);margin-bottom:.3rem">ENVIRONMENT</div><div style="color:var(--lavender)">Kali Linux · Docker · Kubernetes · Proxmox</div></div>
         <div style="border-top:1px solid var(--border);padding-top:1.2rem">
           <div style="color:var(--pink-glow);margin-bottom:.6rem">abir@portfolio:~$</div>
@@ -553,6 +553,20 @@
       <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem">
         <span class="cert-status completed">Completed</span>
         <button class="cert-view-btn" onclick="openCert('certif google.pdf')">View Certificate ↗</button>
+      </div>
+    </div>
+
+    <!-- 1b. Forage — Cybersecurity Job Simulation -->
+    <div class="cert-card reveal">
+      <div class="cert-icon-wrap">
+        <img src="https://urlcard.jp/images/web_top/credit_icon/credit_master.png" alt="Mastercard logo" />
+      </div>
+      <div class="cert-issuer">Forage</div>
+      <div class="cert-name">Cybersecurity Job Simulation — Certificate of Completion</div>
+      <div class="cert-desc">Practical job-simulation tasks: designed a phishing email simulation and interpreted phishing simulation results. Sep 2026.</div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem">
+        <span class="cert-status completed">Completed</span>
+        <button class="cert-view-btn" onclick="openCert('vcKAB5yYAgvemepGQ_mfxGwGDp6WkQmtmTf_6ab9462df13560b2ad5adff0_1790543693277_completion_certificate.pdf')">View Certificate ↗</button>
       </div>
     </div>
 
