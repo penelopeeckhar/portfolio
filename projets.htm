@@ -784,7 +784,6 @@
 
   <div class="projects-section">
     <div class="projects-grid">
-
       <!-- 01 — SecureOps Shield -->
       <div class="proj-card featured reveal" data-cat="security">
         <div class="proj-header">
@@ -871,57 +870,55 @@
         </div>
       </div>
 
-      <!-- 04 — Private Cloud Platform -->
-      <div class="proj-card featured reveal" data-cat="cloud">
+      <!-- 04 — NSE-Sentinel -->
+      <div class="proj-card featured reveal" data-cat="security">
         <div class="proj-header">
           <span class="proj-num">04</span>
-          <span class="proj-type type-cloud">Cloud / Infra</span>
+          <span class="proj-type type-security">Cybersecurity</span>
         </div>
-        <div class="proj-title">Private Cloud Platform — Proxmox + Auto-Scaling</div>
-        <div class="proj-desc">Full private cloud infrastructure with HAProxy load balancing (Round Robin &amp; Least
-          Connections), Prometheus/Alertmanager monitoring, and automatic Flask server deployment triggered when CPU
-          &gt; 80% — zero human intervention required.</div>
+        <div class="proj-title">NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit</div>
+        <div class="proj-desc">Modular security auditing toolkit built on the Nmap Scripting Engine (Lua). Six
+          custom NSE audits — HTTP security headers, SSH weak KEX/cipher detection, FTP TLS &amp; anonymous
+          access, SMBv1/signing, MySQL capability inspection, and information disclosure — feed a
+          severity-weighted global risk score (0–100), with automated TXT and HTML report generation. Validated
+          end-to-end in an isolated Metasploitable 2 lab.</div>
         <div class="proj-tags">
-          <span class="tag">Proxmox</span>
-          <span class="tag b">HAProxy</span>
-          <span class="tag g">Prometheus</span>
-          <span class="tag">Flask</span>
-          <span class="tag p">Autoscaling</span>
-          <span class="tag b">VMware</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag p">Nmap NSE / Lua</span>
+          <span class="tag b">Bash</span>
+          <span class="tag g">Risk Scoring</span>
+          <span class="tag">Security Auditing</span>
         </div>
         <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/private-cloud-autoscaling-platform" target="_blank"
-            class="proj-link">View on GitHub →</a>
+          <a href="https://github.com/penelopeeckhar/nse-sentinel" target="_blank" class="proj-link">View on
+            GitHub →</a>
           <button class="demo-btn"
-            onclick="openDemo('Private Cloud Platform — Proxmox + Auto-Scaling', 'https://github.com/penelopeeckhar/private-cloud-autoscaling-platform')">&#9654;
+            onclick="openDemo('NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit', 'https://github.com/penelopeeckhar/nse-sentinel')">&#9654;
             View Demo</button>
         </div>
       </div>
-
-      <!-- 05 — Kaggriculture -->
-      <div class="proj-card featured reveal" data-cat="ml">
+      <!-- 05 — Web App Hardening (OWASP) -->
+      <div class="proj-card  featured reveal" data-cat="security">
         <div class="proj-header">
           <span class="proj-num">05</span>
-          <span class="proj-type type-ml">AI / ML</span>
+          <span class="proj-type type-security">Cybersecurity</span>
         </div>
-        <div class="proj-title">Kaggriculture — Competitive Kaggle Agent</div>
-        <div class="proj-desc">Autonomous agent for a competitive 2-player Kaggle ladder (farm management
-          simulation, ~3800 teams). Combines a time-bounded beam search with a zone-aware greedy policy for
-          hired labor, backed by a local simulator mirroring the official game engine. Iterated through 6
-          submitted versions to raise the official ladder score from 292.6 to 342.8, with a median decision
-          time of 241.5ms against a 450ms per-turn budget and 719 rounds completed without a crash.</div>
+        <div class="proj-title">Web App Hardening (OWASP A02)</div>
+        <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical
+          misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
         <div class="proj-tags">
-          <span class="tag">AI Agent</span>
-          <span class="tag p">Search / Heuristics</span>
-          <span class="tag b">Python</span>
-          <span class="tag g">Docker</span>
-          <span class="tag">Kaggle Competition</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag p">Blue Team</span>
+          <span class="tag p">Red Team</span>
+          <span class="tag b">Docker</span>
+          <span class="tag">Nmap</span>
+          <span class="tag g">OWASP</span>
         </div>
         <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/kaggriculture-agent" target="_blank" class="proj-link">View on
+          <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on
             GitHub →</a>
           <button class="demo-btn"
-            onclick="openDemo('Kaggriculture — Competitive Kaggle Agent', 'https://github.com/penelopeeckhar/kaggriculture-agent')">&#9654;
+            onclick="openDemo('Web App Hardening (OWASP A02)', 'https://github.com/penelopeeckhar/projet-misconfig-mayhem')">&#9654;
             View Demo</button>
         </div>
       </div>
@@ -948,10 +945,34 @@
         </div>
       </div>
 
-      <!-- 07 — SSH Honeypot -->
+      <!-- 07 — Custom TLS-like Secure Protocol -->
       <div class="proj-card reveal" data-cat="security">
         <div class="proj-header">
           <span class="proj-num">07</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">Custom TLS-like Secure Protocol</div>
+        <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS
+          handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
+        <div class="proj-tags">
+          <span class="tag">Cryptography</span>
+          <span class="tag p">Network Security</span>
+          <span class="tag b">Python</span>
+          <span class="tag">TLS/PKI</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub
+            →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Custom TLS-like Secure Protocol', 'https://github.com/penelopeeckhar/projet-crypto-tls')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 08 — SSH Honeypot -->
+      <div class="proj-card featured reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">08</span>
           <span class="proj-type type-security">Cybersecurity</span>
         </div>
         <div class="proj-title">SSH Honeypot + Centralized Log Pipeline</div>
@@ -973,60 +994,10 @@
         </div>
       </div>
 
-      <!-- 08 — Web App Hardening (OWASP) -->
-      <div class="proj-card  featured reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">08</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Web App Hardening (OWASP A02)</div>
-        <div class="proj-desc">Designed a deliberately vulnerable Dockerized FastAPI/Nginx app, exploited critical
-          misconfigurations (OWASP A02), then performed full hardening with automated validation via Nmap scans.</div>
-        <div class="proj-tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag p">Blue Team</span>
-          <span class="tag p">Red Team</span>
-          <span class="tag b">Docker</span>
-          <span class="tag">Nmap</span>
-          <span class="tag g">OWASP</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-misconfig-mayhem" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Web App Hardening (OWASP A02)', 'https://github.com/penelopeeckhar/projet-misconfig-mayhem')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 09 — Custom TLS-like Secure Protocol -->
-      <div class="proj-card featured reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">09</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">Custom TLS-like Secure Protocol</div>
-        <div class="proj-desc">Implementation of an encrypted client-server session from scratch, mimicking TLS
-          handshake mechanics with RSA key exchange, AES session encryption, and certificate validation.</div>
-        <div class="proj-tags">
-          <span class="tag">Cryptography</span>
-          <span class="tag p">Network Security</span>
-          <span class="tag b">Python</span>
-          <span class="tag">TLS/PKI</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/projet-crypto-tls" target="_blank" class="proj-link">View on GitHub
-            →</a>
-          <button class="demo-btn"
-            onclick="openDemo('Custom TLS-like Secure Protocol', 'https://github.com/penelopeeckhar/projet-crypto-tls')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
-
-      <!-- 10 — Network Traffic Analysis (Wireshark) -->
+      <!-- 09 — Network Traffic Analysis (Wireshark) -->
       <div class="proj-card reveal" data-cat="security">
         <div class="proj-header">
-          <span class="proj-num">10</span>
+          <span class="proj-num">09</span>
           <span class="proj-type type-security">Cybersecurity</span>
         </div>
         <div class="proj-title">Network Traffic Analysis (Wireshark)</div>
@@ -1046,10 +1017,10 @@
         </div>
       </div>
 
-      <!-- 11 — Automation & Cybersecurity Scripts -->
+      <!-- 10 — Automation & Cybersecurity Scripts -->
       <div class="proj-card reveal" data-cat="dev">
         <div class="proj-header">
-          <span class="proj-num">11</span>
+          <span class="proj-num">10</span>
           <span class="proj-type type-dev">Development</span>
         </div>
         <div class="proj-title">Automation &amp; Cybersecurity Scripts</div>
@@ -1069,10 +1040,65 @@
         </div>
       </div>
 
-      <!-- 12 — Data Cleaning & ML Pipeline (Academic Labs) -->
-      <div class="proj-card reveal" data-cat="ml">
+      <!-- 11 — Private Cloud Platform -->
+      <div class="proj-card reveal" data-cat="cloud">
+        <div class="proj-header">
+          <span class="proj-num">11</span>
+          <span class="proj-type type-cloud">Cloud / Infra</span>
+        </div>
+        <div class="proj-title">Private Cloud Platform — Proxmox + Auto-Scaling</div>
+        <div class="proj-desc">Full private cloud infrastructure with HAProxy load balancing (Round Robin &amp; Least
+          Connections), Prometheus/Alertmanager monitoring, and automatic Flask server deployment triggered when CPU
+          &gt; 80% — zero human intervention required.</div>
+        <div class="proj-tags">
+          <span class="tag">Proxmox</span>
+          <span class="tag b">HAProxy</span>
+          <span class="tag g">Prometheus</span>
+          <span class="tag">Flask</span>
+          <span class="tag p">Autoscaling</span>
+          <span class="tag b">VMware</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/private-cloud-autoscaling-platform" target="_blank"
+            class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Private Cloud Platform — Proxmox + Auto-Scaling', 'https://github.com/penelopeeckhar/private-cloud-autoscaling-platform')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 12 — Kaggriculture -->
+      <div class="proj-card featured reveal" data-cat="ml">
         <div class="proj-header">
           <span class="proj-num">12</span>
+          <span class="proj-type type-ml">AI / ML</span>
+        </div>
+        <div class="proj-title">Kaggriculture — Competitive Kaggle Agent</div>
+        <div class="proj-desc">Autonomous agent for a competitive 2-player Kaggle ladder (farm management
+          simulation, ~3800 teams). Combines a time-bounded beam search with a zone-aware greedy policy for
+          hired labor, backed by a local simulator mirroring the official game engine. Iterated through 6
+          submitted versions to raise the official ladder score from 292.6 to 342.8, with a median decision
+          time of 241.5ms against a 450ms per-turn budget and 719 rounds completed without a crash.</div>
+        <div class="proj-tags">
+          <span class="tag">AI Agent</span>
+          <span class="tag p">Search / Heuristics</span>
+          <span class="tag b">Python</span>
+          <span class="tag g">Docker</span>
+          <span class="tag">Kaggle Competition</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/kaggriculture-agent" target="_blank" class="proj-link">View on
+            GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('Kaggriculture — Competitive Kaggle Agent', 'https://github.com/penelopeeckhar/kaggriculture-agent')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
+
+      <!-- 13 — Data Cleaning & ML Pipeline (Academic Labs) -->
+      <div class="proj-card reveal" data-cat="ml">
+        <div class="proj-header">
+          <span class="proj-num">13</span>
           <span class="proj-type type-ml">AI / ML</span>
         </div>
         <div class="proj-title">Data Cleaning &amp; ML Pipeline — Academic Labs</div>
@@ -1092,10 +1118,10 @@
         </div>
       </div>
 
-      <!-- 13 — Tic-Tac-Toe -->
+      <!-- 14 — Tic-Tac-Toe -->
       <div class="proj-card reveal" data-cat="dev">
         <div class="proj-header">
-          <span class="proj-num">13</span>
+          <span class="proj-num">14</span>
           <span class="proj-type type-dev">Development</span>
         </div>
         <div class="proj-title">Tic-Tac-Toe with Score Persistence</div>
@@ -1115,10 +1141,10 @@
         </div>
       </div>
 
-      <!-- 14 — 3D Maze Advanced (Unity V2) -->
+      <!-- 15 — 3D Maze Advanced (Unity V2) -->
       <div class="proj-card reveal" data-cat="game">
         <div class="proj-header">
-          <span class="proj-num">14</span>
+          <span class="proj-num">15</span>
           <span class="proj-type type-game">Game Dev</span>
         </div>
         <div class="proj-title">3D Maze Advanced — Unity V2</div>
@@ -1139,10 +1165,10 @@
         </div>
       </div>
 
-      <!-- 15 — 3D Maze (Unity V1) -->
-      <div class="proj-card featured reveal" data-cat="game">
+      <!-- 16 — 3D Maze (Unity V1) -->
+      <div class="proj-card reveal" data-cat="game">
         <div class="proj-header">
-          <span class="proj-num">15</span>
+          <span class="proj-num">16</span>
           <span class="proj-type type-game">Game Dev</span>
         </div>
         <div class="proj-title">3D Maze — Unity V1</div>
@@ -1162,33 +1188,6 @@
         </div>
       </div>
 
-      <!-- 16 — NSE-Sentinel -->
-      <div class="proj-card featured reveal" data-cat="security">
-        <div class="proj-header">
-          <span class="proj-num">16</span>
-          <span class="proj-type type-security">Cybersecurity</span>
-        </div>
-        <div class="proj-title">NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit</div>
-        <div class="proj-desc">Modular security auditing toolkit built on the Nmap Scripting Engine (Lua). Six
-          custom NSE audits — HTTP security headers, SSH weak KEX/cipher detection, FTP TLS &amp; anonymous
-          access, SMBv1/signing, MySQL capability inspection, and information disclosure — feed a
-          severity-weighted global risk score (0–100), with automated TXT and HTML report generation. Validated
-          end-to-end in an isolated Metasploitable 2 lab.</div>
-        <div class="proj-tags">
-          <span class="tag">Cybersecurity</span>
-          <span class="tag p">Nmap NSE / Lua</span>
-          <span class="tag b">Bash</span>
-          <span class="tag g">Risk Scoring</span>
-          <span class="tag">Security Auditing</span>
-        </div>
-        <div class="proj-actions">
-          <a href="https://github.com/penelopeeckhar/nse-sentinel" target="_blank" class="proj-link">View on
-            GitHub →</a>
-          <button class="demo-btn"
-            onclick="openDemo('NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit', 'https://github.com/penelopeeckhar/nse-sentinel')">&#9654;
-            View Demo</button>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1236,6 +1235,9 @@
 
     // Toutes les clés utilisent & (pas &amp;) — la recherche est normalisée dans openDemo
     const DEMO_VIDEOS = {
+      'NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit': [
+        { label: 'Démonstration NSE-Sentinel :', src: 'https://drive.google.com/file/d/19Qkfd9JhMhwdEA3lwA2uvrD5vYu0Vgo5/view?usp=drive_link' }
+      ],
       'Kaggriculture — Competitive Kaggle Agent': [
         { label: 'Démonstration de l\'agent Kaggriculture :', src: 'https://drive.google.com/file/d/1MHPmiDrCD_ep_SoMuqwOCuh4Z2dVmGwv/view?usp=sharing' }
       ],
