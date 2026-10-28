@@ -774,7 +774,7 @@
   </div>
 
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterProjects('all', this)">All (16)</button>
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All (17)</button>
     <button class="filter-btn" onclick="filterProjects('security', this)">&#128274; Cybersecurity</button>
     <button class="filter-btn" onclick="filterProjects('dev', this)">&#128187; Development</button>
     <button class="filter-btn" onclick="filterProjects('cloud', this)">&#9729;&#65039; Cloud &amp; Infra</button>
@@ -1188,6 +1188,32 @@
         </div>
       </div>
 
+      <!-- 17 — AegisCloud -->
+      <div class="proj-card reveal" data-cat="security">
+        <div class="proj-header">
+          <span class="proj-num">17</span>
+          <span class="proj-type type-security">Cybersecurity</span>
+        </div>
+        <div class="proj-title">AegisCloud — DevSecOps &amp; GitOps Laboratory</div>
+        <div class="proj-desc">Local, cost-free DevSecOps lab running a full delivery chain on a single Debian VM:
+          Jenkins pipelines with a SonarQube quality gate, Trivy image scans blocking fixable CRITICAL
+          vulnerabilities before the push to a private registry, k3s deployment, ArgoCD GitOps auto-sync, and
+          Prometheus / Grafana / Alertmanager monitoring. Security exceptions are documented with expiry dates.</div>
+        <div class="proj-tags">
+          <span class="tag">DevSecOps</span>
+          <span class="tag p">Jenkins</span>
+          <span class="tag b">Trivy</span>
+          <span class="tag g">k3s / ArgoCD</span>
+          <span class="tag">SonarQube</span>
+          <span class="tag p">Prometheus / Grafana</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://github.com/penelopeeckhar/AegisCloud" target="_blank" class="proj-link">View on GitHub →</a>
+          <button class="demo-btn"
+            onclick="openDemo('AegisCloud — DevSecOps &amp; GitOps Laboratory', 'https://github.com/penelopeeckhar/AegisCloud')">&#9654;
+            View Demo</button>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -1235,6 +1261,9 @@
 
     // Toutes les clés utilisent & (pas &amp;) — la recherche est normalisée dans openDemo
     const DEMO_VIDEOS = {
+      'AegisCloud — DevSecOps & GitOps Laboratory': [
+        { label: 'Démonstration AegisCloud :', src: 'https://drive.google.com/file/d/1Ucovjo5usvG40H-y0I6yyVqeN_-L33oG/view?usp=drive_link' }
+      ],
       'NSE-Sentinel — Custom Nmap NSE Security Auditing Toolkit': [
         { label: 'Démonstration NSE-Sentinel :', src: 'https://drive.google.com/file/d/19Qkfd9JhMhwdEA3lwA2uvrD5vYu0Vgo5/view?usp=drive_link' }
       ],
